@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\basetype.h" />
+    <ClInclude Include="..\include\log.h" />
     <ClInclude Include="..\include\image.h" />
     <ClInclude Include="..\include\polygon.h" />
     <ClInclude Include="..\include\rect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\image.cpp" />
+    <ClCompile Include="..\source\log.cpp" />
     <ClCompile Include="..\source\polygon.cpp" />
     <ClCompile Include="..\source\rect.cpp" />
   </ItemGroup>
@@ -107,6 +109,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -140,6 +143,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

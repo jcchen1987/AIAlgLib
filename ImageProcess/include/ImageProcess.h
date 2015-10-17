@@ -1,32 +1,25 @@
 #ifndef _IMAGE_PROCESS_H_
 #define _IMAGE_PROCESS_H_
 
-#include "BaseType.h"
+#include "commonlib.h"
 
-typedef struct
-{
-    l32 l32Width;
-    l32 l32Height;
-}TImgProcParam;
+#define IMAGE_PROCESS_ALG_BASE 0x80000000
 
-typedef struct
-{
 
-}TImgProcIn;
+#define IS_IMG_PROCESS_ALG(x) (((x) & IMAGE_PROCESS_ALG_BASE) ? true : false)
 
-typedef struct
-{
-
-}TImgProcOut;
 
 class CImageProcess
 {
 public:
-    virtual l32 Open(TImgProcParam *ptParam) = 0;
-    virtual l32 SetParam(char *ps8Param) = 0;
-    virtual l32 Process(TImgProcIn *ptIn, TImgProcOut *ptOut) = 0;
-    virtual l32 Close() = 0;
+    CImageProcess(l32 l32Width, l32 l32Height);
+    virtual ~CImageProcess() = 0;
+    virtual void SetParam(char *ps8Param) = 0;
+    virtual void Process(TImage *ptSrcImg, TImage *ptDstImg, TImage *ptMask) = 0;
+    l32 GetLastError();
+private:
+    l32 m_l32ErrCode;
 };
 
-EXPORT l32 ImgProcInit();
+EXPORT CImageProcess* ImgProcInit(l32 l32AlgType);
 #endif

@@ -35,6 +35,10 @@ typedef unsigned __int64   u64;
 #define BETWEEN(x, a, b) ((x) >= (a) && (x) < (b))
 #endif
 
+#ifndef NULL
+#define NULL 0
+#endif
+
 struct TPoint
 {
     l32 l32X;
