@@ -15,6 +15,7 @@
 
 enum ELogLevel
 {
+    ELOG_INVALID = 0,
     ELOG_ERROR = 0x1000,
     ELOG_WARNING = 0x2000,
     ELOG_INFO = 0x3000
@@ -28,8 +29,13 @@ public:
 
     ELogLevel GetLogLevel();
     void Set(u32 u32Code, s8 *ps8Info);
-    void Get(u32 &u32Code, s8 *&ps8Info);
+    void Get(u32 &u32Code, s8 *ps8Info);
     void Record(s8 *ps8LogFile = NULL);
+
+private:
+    void Record2File(s8 *ps8LogFile);
+    void Print();
+
     
 private:
     u32 m_u32Code;
